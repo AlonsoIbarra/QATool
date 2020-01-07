@@ -1,4 +1,3 @@
-os: ububtu
 language: python
 python: 3.8
 services: # => 3
