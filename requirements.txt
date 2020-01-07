@@ -64,7 +64,6 @@ typing==3.6.4
 urllib3==1.22
 Werkzeug==0.14.1
 wget==3.2
-xattr==0.6.4
 yarg==0.1.9
 zope.interface==4.1.1
 django_modalview==0.1.6
