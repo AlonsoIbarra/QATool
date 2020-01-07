@@ -24,7 +24,7 @@ enum34==1.1.6
 ez-setup==0.9
 flake8==3.5.0
 flake8-polyfill==1.0.2
-Flask==0.12.2
+Flask==1.0
 Flask-Bootstrap==3.3.7.1
 funcsigs==1.0.2
 idna==2.6
