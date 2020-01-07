@@ -12,4 +12,3 @@ before_script: # => 6
   - cd ./WebAPIClient
 script: # => 7
   - python manage.py test
-  - exit
