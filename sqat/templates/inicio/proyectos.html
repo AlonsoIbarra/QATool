@@ -1,0 +1,54 @@
+{% extends "../templates/inicio/base_inicio.html" %}
+
+{% load static %}
+{% load humanize %}
+
+{% block detalle %} 
+	<div>
+		<div class="title"><h3>Proyectos registados</h3></div>
+		{% for proyecto in proyectos %} 
+			<div class="proyectoslist list">
+				<div class="descripcion">
+					<p>
+						<h3>{{ proyecto.nombre }}</h3>
+					</p>
+					<p>
+						<h4>{{ proyecto.cliente }}</h4>
+					</p>
+					<p>
+						<h4>{{ proyecto.fases }} fases registradas</h4>
+					</p>
+					<p>
+						<h4>Estátus de configuración : {{ proyecto.estatus|yesno:"Aprobada,Pendiente de aprobar" }} </h4>
+					</p>
+			    </div>
+				<div  class="menu">
+					<a href="/administrar/proyecto/{{ proyecto.id }}/" class="see_fases">
+							<img class="add_button" src="{% static "images/phase-icon.png" %}" title="Ver fases">
+					</a>
+					<a href="/administrar/proyecto/roles/{{ proyecto.id }}/" class="see_roles">
+							<img class="add_button" src="{% static "images/team-icon.png" %}" title="Ver roles">
+					</a>
+					<a href="/administrar/proyecto/eventos/{{ proyecto.id }}/" class="see_events">
+							<img class="add_button" src="{% static "images/schedule-icon.png" %}" title="Ver eventos">
+					</a>
+					<a href="/administrar/proyecto/aprobar/{{ proyecto.id }}" class="aprove_project">
+							<img class="add_button" src="{% static "images/aprove-icon.png" %}" title="Verificar/Aprobar configuración">
+					</a>
+					<a href="/administrar/proyecto/proyecto/delete/{{ proyecto.id }}" class="delete_project">
+							<img class="add_button" src="{% static "images/delete-icon.png" %}" title="Eliminar proyecto">
+					</a>
+				</div>
+			</div>
+		{% empty %}
+			<p>No hay proyectos registrados.</p>
+		{% endfor %}
+		<div class="div_add_item">
+			<div>
+				<a href="/administrar/proyecto/registrar/" id="add_project" name="add_project" alt="Registrar proyecto">
+					<img class="add_button" src="{% static "images/add-icon.png" %}" title="Agregar proyecto">
+				</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

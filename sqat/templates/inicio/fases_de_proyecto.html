@@ -1,0 +1,43 @@
+{% extends "../templates/inicio/base_inicio.html" %}
+
+{% load static %}
+
+{% block titulo %} {{proyecto}} {% endblock %}
+
+{% block breadcrumbs %}
+{% endblock %}
+
+{% block detalle %}
+	<div class="div_left">
+		<div class="title"><h3>Fases de proyecto registradas</h3></div>
+		{% for fase_de_proyecto in fases_de_proyecto %} 
+			<div class="faseslist list">
+				<div class="fasedetalle">
+					<p><strong>Nombre de la fase : </strong>{{ fase_de_proyecto }}</p>
+					<p> <i class="icon-list-ol"></i> {{ fase_de_proyecto.productosDeTrabajo.count }} productos agregados</p>
+					<p><i class="icon-calendar"></i> De : {{ fase_de_proyecto.fecha_de_inicio|date:"M d, Y" }} a: {{ fase_de_proyecto.fecha_de_cierre|date:"M d, Y" }}</p>
+				</div>
+				<div class="fasesmenu">
+					<a href="/administrar/proyecto/fase/{{ fase_de_proyecto.id }}/" class="see_productos">
+						<img class="add_button" src="{% static "images/detail-icon.png" %}" title="Ver fase"></a>
+					<a href="/administrar/proyecto/fase/delete/{{ fase_de_proyecto.id }}" class="delete_fase">
+							<img class="add_button" src="{% static "images/delete-icon.png" %}" title="Eliminar fase"></a>
+				</div>
+			</div>
+		{% empty %}
+			<p>No hay fases registradas.</p>
+		{% endfor %}
+		<div class="div_add_item">
+			<div>
+				<a href="/administrar/proyecto/fases/registrar/{{proyecto.id}}" id="agregar_fase" name="agregar_fase">
+					<img class="add_button" src="{% static "images/add-icon.png" %}" title="Registrar fase">
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="div_rigth">
+		<div class="title"><h3>Datos de proyecto</h3></div>
+		<p><strong>Nombre :</strong>{{ proyecto.nombre }}</p>
+		<p><strong>Cliente : </strong>{{ proyecto.cliente }}</p>
+	</div>
+{% endblock %}	

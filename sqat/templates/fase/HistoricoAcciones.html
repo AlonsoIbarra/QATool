@@ -1,0 +1,24 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Fecha limite</th>
+      <th scope="col">Acción</th>
+      <th scope="col">Responsable</th>
+      <th scope="col">Observaciones</th>
+    </tr>
+  </thead>
+  <tbody>
+		{% for accion_correctiva in acciones_correctivas %}
+			<tr>
+				<td>{{ accion_correctiva.fecha_limite }}</td>
+				<td>{{ accion_correctiva.accion }}</td>
+				<td>{{ accion_correctiva.responsable }}</td>
+				<td>
+					<textarea class="observaciones-accion" data-id="{{ accion_correctiva.id }}">{{ accion_correctiva.observacion }}</textarea>
+				</td>
+			</tr>
+		{% empty %}
+			<tr><td>No hay acciones registradas.</td></tr>
+		{% endfor %}
+	</tbody>
+</table>

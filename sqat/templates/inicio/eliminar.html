@@ -1,0 +1,37 @@
+{% extends "../templates/inicio/base_inicio.html" %}
+
+{% block titulo %} Eliminar {{ object }} {% endblock %}
+
+{% block detalle %}
+	{% if errors %} 
+		<ul>
+			{% for error in errors %}
+				<li style="color: red;">{{ error }}</li> 
+			{% endfor %}
+		</ul>
+	{% endif %}
+	<div>
+		<form  action="" method="post" >
+			<div class="eliminar">
+			{% csrf_token %}
+			<p>
+				<strong>
+					Confirma Eliminar el siguiete registro?
+				</strong>
+			</p>
+			<table>
+				<tr>
+					<th>Nombre:</th>
+					<td>{{ element }}</td>
+				</tr>
+				<tr>
+					<th>Descripcion:</th>
+					<td>{{ element.descripcion }}</td>
+				</tr>
+			</table>
+			<input class="texto" type="submit" id="eliminar" name="eliminar" value="Eliminar">
+			<a href="{{ previous_url }}"><input class="texto" type="button" name="cancelar" value="Cancelar"></a>
+			</div>
+		</form>
+	</div>
+{% endblock %}

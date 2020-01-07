@@ -1,0 +1,29 @@
+{% extends "../templates/base.html" %}
+
+{% load static %}
+
+{% block titulo %}SACS{% endblock %}
+
+{% block contenido %}
+ 
+<ul class="nav nav-tabs">
+	<li class="active">
+        <a  href="#1" data-toggle="tab">FAQ</a>
+	</li>
+	<li>
+		<a href="#2" data-toggle="tab">Guia</a>
+	</li>
+</ul>
+			
+<div class="tab-content">
+	<div class="tab-pane active" id="1">
+        {% include '../templates/help/faq.html' %}
+	</div>
+	<div class="tab-pane" id="2">
+        {% include '../templates/help/guide.html' %}
+	</div>
+	<div class="tab-pane" id="3">
+        {% include '../templates/help/glossary.html' %}
+	</div>
+</div>
+{% endblock %}

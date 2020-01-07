@@ -1,0 +1,40 @@
+{% extends "../templates/inicio/base_inicio.html" %}
+
+{% block titulo %} {{ object }} {% endblock %}
+
+{% block detalle %}
+	{% if form_title %} 
+		<div class="title"><p class="h1">
+			{{ form_title }}
+		</p>
+		</div>
+	{% endif %}
+	{% if messages %} 
+		<ul>
+			{% for message in messages %}
+				<div class="alert alert-info" role="alert">
+					{{ message }}
+				</div> 
+			{% endfor %}
+		</ul>
+	{% endif %}
+	{% if errors %} 
+		<ul>
+			{% for error in errors %}
+				<li style="color: red;">{{ error }}</li> 
+			{% endfor %}
+		</ul>
+	{% endif %}
+	<div id="msgForm" class="alert alert-info" style="display: none;">
+	</div>
+	<div>
+		<form class="form" action="" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			<table class= "tabla">
+				{{ form.as_table }}
+			</table>
+			<input class="texto" type="submit" name="guardar" id="guardar">
+			<a href="{{ previous_url }}"><input class="texto" type="button" name="cancelar" value="Cancelar" ></a>
+		</form>
+	</div>
+{% endblock %}

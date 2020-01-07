@@ -1,0 +1,32 @@
+{% extends "../templates/fase/base_fase.html" %}
+
+{% load static %}
+
+{% block titulo %} {{ fase.proyecto }} {% endblock %}
+
+{% block detalle %}
+	<div class="title"><h3> {{ fase }} </h3></div>
+	<div class="">
+		<div class="title"><h3>Listado de productos a evaluar</h3></div>
+		{% for producto in productos_de_trabajo %} 
+			<div class="proyectoslist">
+				<hr>
+				<div>
+					<p><strong>Producto de trabajo :</strong> {{ producto }}</p>
+					<p><strong>Nombre de archivo :</strong> {{ producto.get_nombre }}</p>
+					<p><strong>Ultima actualización :</strong> {{ producto.ultima_actualizacion }}</p>
+					<p><strong>Estatus :</strong> {{ producto.estatus }}</p>
+					{% if updateFileAllowed %}
+						<a class="actualizar_archivo" href="/evaluar/producto/update/{{ producto.id }}/">
+							<i class="icon-upload"></i> Actualizar archivo
+						</a>
+					{% endif %}
+					<a href="/evaluar/producto/criterios/{{ producto.id }}/" class="see_criterios"><i class="icon-list"></i> Criterios {{ producto.criterios.count }}</a> 
+					<a href="/evaluar/producto/metricas/{{ producto.id }}/" class="see_metricas"><i class="icon-tasks"></i> Métricas {{ producto.metricas.count }}</a>
+				</div>
+			</div>
+		{% empty %}
+			<p>No hay productos agregados.</p>
+		{% endfor %}
+	</div>
+{% endblock %}

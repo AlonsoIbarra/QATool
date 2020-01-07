@@ -1,0 +1,66 @@
+{% load static %}
+<html lang="es">
+    <header>
+        <title>{% block titulo %}{% endblock %}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Jua|Quicksand" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+        <link rel="stylesheet" href="{% static "css/style.css" %}">
+        <link rel="stylesheet" href="{% static "css/font-awesome/css/font-awesome.min.css" %}">
+        <link rel="stylesheet" href="{% static "css/progresscircle.css" %}">
+        <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!--[if IE 7]>
+          <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome-ie7.min.css">
+        <![endif]-->
+        {% block js %}{% endblock %}
+    </header>
+    <body>
+        <div class="maincontent">
+            <div class="head">
+                <img class="logo" src="{% static "images/logo3_.png" %}" title="Eliminar rol">
+                <div class="sitetitle">Soporte al Aseguramiento de la Calidad de Software</div>
+            </div>
+            {% block nombre_usuario %}
+                <div class="div_name">
+                    {% if request.user.is_authenticated %}
+                        <div class="mainmenu">
+                            <a href="/administrar/inicio">Configuración de proyectos</a>
+                            <a href="/evaluar/inicio">Seguimiento y control de proyectos</a>
+                            <a href="/help">Ayuda</a>
+                        </div>
+                        <div>
+                            <a href="/administrar/perfil/update">{{ request.user.username }}</a>
+                            [<a id="salir" name="salir" href="/logout/">Salir</a>]
+                        </div>
+                    {% else %}
+                        <div class="mainmenu">
+                            <a href="/index">Inicio</a>
+                            <a href="/help">Ayuda</a>
+                        </div>
+                        <div>
+                            <a href="/signup/">Registrarse</a>
+                            <a href="/login/">Entrar</a>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endblock %}
+            {% block contenido %}
+                <div style="width: 100%;height: 100%"></div>
+            {% endblock %}
+        </div>
+    </body>
+    <footer>
+        <div class="footer">
+            <p>Centro de Investigación en Matematicas A.C. Unidad Zacatecas.</p>
+            <p>Quantum Ciudad del Conocimiento C. Galileo Galilei, bloque 3, lote 7</p>
+            <p>C.P. 98160 Zacatecas, Zac.</p>
+            <p>Copyright 2018</p>
+        </div>
+    </footer>
+</html>

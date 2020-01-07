@@ -1,0 +1,31 @@
+{% extends "../templates/inicio/base_inicio.html" %}
+
+{% block titulo %} Recuperación de contraseña {% endblock %}
+
+{% block contenido %}
+
+	{% if messages %} 
+		<ul>
+			{% for message in messages %}
+				<li style="color: green;">{{ message }}</li> 
+			{% endfor %}
+		</ul>
+	{% endif %}
+	{% if errors %} 
+		<ul>
+			{% for error in errors %}
+				<li style="color: red;">{{ error }}</li> 
+			{% endfor %}
+		</ul>
+	{% endif %}
+	<div>
+		<div class="title">{{ title }} </div>
+		<form method="post" id="login-form">
+			{% csrf_token %}
+			<table>
+				{{ form.as_table }}
+			</table>
+			<input type="submit" name="Enviar">
+		</form>
+	</div>
+{% endblock %}
