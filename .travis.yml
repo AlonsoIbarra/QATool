@@ -9,6 +9,7 @@ install: # => 5
   - pip install -r requirements.txt
 before_script: # => 6
   - mysql -e 'create database test;' -u root
+  - cd ./QATool
 script: # => 7
-  - python QATool/manage.py test
+  - python manage.py test
   - exit
