@@ -54,7 +54,6 @@ python-dateutil==1.5
 pytz==2013.7
 radon==2.2.0
 requests==2.18.4
-scipy==1.1.0rc1
 selenium==3.9.0
 singledispatch==3.4.0.3
 six==1.4.1
