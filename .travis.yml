@@ -1,3 +1,6 @@
 os: windows
-language: Python
-python: 3.8
+env:
+  - DB=postgres
+  - SH=bash
+#language: Python
+#python: 3.8
