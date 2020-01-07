@@ -1,0 +1,4 @@
+os: windows
+languaje: Python
+rvm: 
+ - 3.8
