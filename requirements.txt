@@ -29,7 +29,6 @@ funcsigs==1.0.2
 idna==2.6
 itsdangerous==0.24
 Jinja2==2.10
-kronos==0.2.2
 lxml==4.1.1
 macholib==1.5.1
 mando==0.6.4
@@ -49,7 +48,6 @@ py2app==0.7.3
 pycodestyle==2.3.1
 pyflakes==1.6.0
 pyparsing==2.0.1
-python-crontab==2.2.8
 python-dateutil==1.5
 pytz==2013.7
 radon==2.2.0
