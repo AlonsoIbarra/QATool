@@ -19,7 +19,7 @@ Flask-Bootstrap==3.3.7.1
 funcsigs==1.0.2
 idna==2.6
 itsdangerous==0.24
-Jinja2==2.10
+Jinja2==2.11.3
 kronos==0.2.2
 lxml==4.1.1
 macholib==1.5.1
