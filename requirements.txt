@@ -51,7 +51,7 @@ sqlparse==0.2.4
 tornado==4.5.3
 typing==3.6.4
 urllib3==1.22
-Werkzeug==0.14.1
+Werkzeug==0.15.5
 wget==3.2
 yarg==0.1.9
 zope.interface==4.1.1
